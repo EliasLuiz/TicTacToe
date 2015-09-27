@@ -14,9 +14,9 @@ public class Sender {
         game = t;
         int p = (int) (Math.random() * 100 + 1000);
         System.out.println(p);
-        tcp = new TcpServer(this, p);
-        //udp = new UdpServer();
-        udp = null;
+        //tcp = new TcpServer(this, p);
+        udp = new UdpServer();
+        tcp = null;
     }
 
     public void connect(String address, String port, boolean isTcp) {
@@ -41,10 +41,10 @@ public class Sender {
             while("".equals(read)){
                 try { read = tcp.read(); System.out.println("leu: " + read); } 
                 catch (IOException ex) { ex.printStackTrace(); }
-            }/*
-        else
+            }
+        /*else
             while(read == ""){
-                try { read = udp.read(); } 
+                try { udp.receptor(); } 
                 catch (IOException ex) { ex.printStackTrace(); }
             }*/
         
