@@ -14,17 +14,17 @@ public class TcpServer{
     private Socket socket;
     private BufferedReader in;
     private BufferedWriter out;
-    private final int port;
     
-    public TcpServer(Sender sender, int port) {
+    public TcpServer(Sender sender) {
         this.sender = sender;
-        this.port = port;
         clear();
     }
     
     public final void clear(){
         try {
-            tcp = new TcpListener(this, port);
+            int p = (int) (Math.random() * 100 + 1000);
+            System.out.println("porta tcp: " + p);
+            tcp = new TcpListener(this, p);
             tcp.start();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -66,7 +66,7 @@ public class TcpServer{
     }
     
     public String read() throws IOException {
-        System.out.println("vai ler");
+        while(!in.ready()) {}
         return in.readLine();
     }
     

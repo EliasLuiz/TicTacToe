@@ -12,11 +12,8 @@ public class Sender {
     
     public Sender(TicTacToe t){
         game = t;
-        int p = (int) (Math.random() * 100 + 1000);
-        System.out.println(p);
-        //tcp = new TcpServer(this, p);
-        udp = new UdpServer();
-        tcp = null;
+        tcp = new TcpServer(this);
+        udp = new UdpServer(this);
     }
 
     public void connect(String address, String port, boolean isTcp) {
@@ -25,28 +22,28 @@ public class Sender {
         if(isTcp)
             tcp.connect(address, port);
         else
-            udp.connect(address, port);
+            udp.connect(address, port, false);
     }
     
     public void writePlay(int pos) {
         if(isTcp)
             tcp.write(pos + "\n"); 
         else
-            udp.write(pos);
+            udp.write(pos + "\n");
     }
     
     public void readPlay() {
         String read = "";
         if(isTcp)
             while("".equals(read)){
-                try { read = tcp.read(); System.out.println("leu: " + read); } 
+                try { read = tcp.read(); } 
                 catch (IOException ex) { ex.printStackTrace(); }
             }
-        /*else
-            while(read == ""){
-                try { udp.receptor(); } 
+        else
+            while("".equals(read)){
+                try { read = udp.read(); } 
                 catch (IOException ex) { ex.printStackTrace(); }
-            }*/
+        }
         
         game.makePlay(2, Integer.parseInt(read));
     }
