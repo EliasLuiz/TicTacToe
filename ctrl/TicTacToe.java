@@ -40,7 +40,6 @@ public final class TicTacToe {
     }
     
     public void makePlay(int player, int pos) {
-        pos--;
         if(grid[ pos / 3 ][ pos % 3 ] == 0 && !isOver() && lastPlay != player){
             lastPlay = player;
             grid[ pos / 3 ][ pos % 3 ] = player;
@@ -75,5 +74,9 @@ public final class TicTacToe {
         
         screen.createDialog("Deu velha!", "Resultado");
         return true;
+    }
+
+    public void setLastPlay(int lastPlay) {
+        this.lastPlay = lastPlay;
     }
 }

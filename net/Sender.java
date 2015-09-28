@@ -22,7 +22,7 @@ public class Sender {
         if(isTcp)
             tcp.connect(address, port);
         else
-            udp.connect(address, port, false);
+            udp.connect(address, port, null);
     }
     
     public void writePlay(int pos) {
@@ -43,7 +43,7 @@ public class Sender {
             while("".equals(read)){
                 try { read = udp.read(); } 
                 catch (IOException ex) { ex.printStackTrace(); }
-        }
+            }
         
         game.makePlay(2, Integer.parseInt(read));
     }
@@ -51,6 +51,11 @@ public class Sender {
     public void connected(boolean isTcp) {
         this.isTcp = isTcp;
         game.connected();
+    }
+    
+    public void makePlay(int player, int pos){
+        game.setLastPlay(1);
+        game.makePlay(2, pos);
     }
     
 }

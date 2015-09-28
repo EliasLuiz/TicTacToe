@@ -248,39 +248,39 @@ public class Screen extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        game.makePlay(1, 1);
+        game.makePlay(1, 0);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        game.makePlay(1, 2);
+        game.makePlay(1, 1);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        game.makePlay(1, 3);
+        game.makePlay(1, 2);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        game.makePlay(1, 4);
+        game.makePlay(1, 3);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        game.makePlay(1, 5);
+        game.makePlay(1, 4);
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        game.makePlay(1, 6);
+        game.makePlay(1, 5);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        game.makePlay(1, 7);
+        game.makePlay(1, 6);
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        game.makePlay(1, 8);
+        game.makePlay(1, 7);
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        game.makePlay(1, 9);
+        game.makePlay(1, 8);
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void rdTCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdTCPActionPerformed

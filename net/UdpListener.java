@@ -20,7 +20,7 @@ public class UdpListener extends Thread {
             byte[] bMsg = new byte[256];
             DatagramPacket pkg = new DatagramPacket(bMsg, bMsg.length);
             socket.receive(pkg);
-            server.connect(pkg.getAddress().toString(), pkg.getPort() + "", true);
+            server.connect(pkg.getAddress().getHostAddress(), pkg.getPort() + "", pkg);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

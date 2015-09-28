@@ -30,11 +30,13 @@ public class UdpServer {
         }
     }
     
-    public void connect(String address, String port, boolean isPlay) {
+    public void connect(String address, String port, DatagramPacket pkg) {
         this.address = address;
         this.port = Integer.parseInt(port);
-        if(isPlay)
-            sender.readPlay();
+        if(pkg != null){
+            System.out.println(Integer.parseInt(new String(pkg.getData(), 0, pkg.getLength()).trim()));
+            sender.makePlay(2, Integer.parseInt(new String(pkg.getData(), 0, pkg.getLength()).trim()));
+        }
     }
 
     public void write(String data) {
@@ -44,6 +46,7 @@ public class UdpServer {
             String s = data;
             byte[] bMsg = s.getBytes();
             DatagramPacket pkg = new DatagramPacket(bMsg, bMsg.length, addr, this.port);
+            serverSocket.send(pkg);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
