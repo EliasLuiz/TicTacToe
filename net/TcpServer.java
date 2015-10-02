@@ -48,6 +48,7 @@ public class TcpServer{
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        tcp = null;
         setBuffers(socket);
     }
     

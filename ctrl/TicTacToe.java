@@ -3,7 +3,7 @@ package ctrl;
 import gui.Screen;
 import net.Sender;
 
-public final class TicTacToe {
+public final class TicTacToe extends Thread {
     
     private int[][] grid;
     private int lastPlay;
@@ -14,6 +14,11 @@ public final class TicTacToe {
         this.screen = screen;
         sender = new Sender(this);
         reset();
+    }
+    
+    @Override
+    public void run() {
+        
     }
     
     public void reset() {
@@ -40,13 +45,14 @@ public final class TicTacToe {
     }
     
     public void makePlay(int player, int pos) {
+        System.out.println(player + " : " + pos);
         if(grid[ pos / 3 ][ pos % 3 ] == 0 && !isOver() && lastPlay != player){
             lastPlay = player;
             grid[ pos / 3 ][ pos % 3 ] = player;
             screen.changeButtonColor(player, pos+1);
             if(player == 1){
                 sender.writePlay(pos);
-                sender.readPlay();
+                sender.readPlay(); // <<----------- PROBLEMA
             }
         }
     }

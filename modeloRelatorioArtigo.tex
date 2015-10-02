@@ -1,0 +1,276 @@
+\documentclass[addpoints,12pt,a4paper]{article}
+
+\PassOptionsToPackage{pdftex}{graphicx}
+\usepackage{graphicx}   
+\usepackage[sfdefault,condensed]{cabin}       
+\usepackage[T1]{fontenc} 
+\usepackage[brazil]{babel}
+\usepackage{epstopdf}
+\usepackage{soul}
+\usepackage{array}
+\usepackage{subfig}
+\RequirePackage[numbers]{natbib}
+
+\newcommand{\CEFETtrabalho}{Trabalho Prático: Soquetes}
+\newcommand{\CEFETautores}{André Malta, Elias Luiz, Nil Martins}
+
+% aumentando as margens originais do documento
+\usepackage{microtype} %melhor divisao de espaco entre letras/palavras
+% aumentando as margens originais do documento
+%\addtolength{\hoffset}{-1.5cm}
+\addtolength{\textwidth}{2cm}
+\addtolength{\hoffset}{-1cm}
+\addtolength{\textheight}{-2cm}
+
+
+%Para algoritmos ---------------------- 
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\lstset{ 
+  language=Octave,                % the language of the code
+  basicstyle=\scriptsize,       % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  %backgroundcolor=\color{bg},    % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=4,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue}, %blue     % keyword style
+  commentstyle=\color{dkgreen}, %dkgreen   % comment style
+  stringstyle=\color{mauve}, %mauve      % string literal style
+  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,...}            % if you want to add more keywords to the set
+}
+%--------------------------------------
+ 
+
+\usepackage{lastpage}
+\newcommand*{\renameenviron}[1]{%
+  \expandafter\let\csname exam-#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname endexam-#1\expandafter\endcsname\csname end#1\endcsname
+  \expandafter\let\csname #1\endcsname\relax
+  \expandafter\let\csname end#1\endcsname\relax
+}
+\renameenviron{lhead}
+\renameenviron{chead}
+\renameenviron{rhead}
+\renameenviron{lfoot}
+\renameenviron{cfoot}
+\renameenviron{rfoot}
+
+% paragrafos
+\setlength{\parskip}{.5cm}
+\setlength{\parindent}{0pt}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{firstpage}{%
+  \fancyhf{}%
+  \fancyhead[L]{\includegraphics[width=3.6cm]{images/_logo.eps}\vspace{.3cm}}
+  \fancyhead[R]{
+	    \textbf{CENTRO FEDERAL DE EDUCAÇÃO TECNOLÓGICA DE 	    
+	    MINAS GERAIS}\\CAMPUS VII - UNIDADE TIMÓTEO - Engenharia 
+	    da Computação\\\vspace{.3cm}\CEFETtrabalho\\\CEFETautores\\\vspace{-.3cm}
+  }
+  \renewcommand{\headheight}{85pt}
+}  
+\fancypagestyle{otherpage}{%
+  \fancyhf{}%
+  \renewcommand{\footrulewidth}{1pt}
+  \renewcommand{\headrulewidth}{1pt}
+  \fancyhead[R]{\CEFETtrabalho\\
+    \CEFETautores\\\vspace{-.3cm}
+  }
+  \renewcommand{\headheight}{45pt}
+  \addtolength{\textheight}{50pt}
+}  
+
+
+\newcommand{\CEFETtitulo}[1]{
+\begin{center}
+\begin{Large}
+\textbf{\\#1\\}
+\end{Large}
+\end{center}
+\vspace{.5cm}
+}
+
+\newcommand{\CEFETsubtitulo}[1]{
+\begin{center}
+\begin{large}
+\textbf{#1\\}
+\end{large}
+\end{center}
+}
+ 
+
+\newcommand{\CEFETopen}{
+    \selectlanguage{brazil}
+    \pagestyle{otherpage}
+    \thispagestyle{firstpage}
+}    
+    
+    
+%para colunas--------------------------
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\definecolor{cefetblue}{RGB}{2, 65, 112}
+\makeatletter
+\def\columnseprulecolor\vrule\@width\columnseprule{
+%Separar colunas com pontinhos entre elas
+%\vbox to \ht\mult@rightbox{\leaders\vbox{\kern2pt\hbox{.}\kern2pt}\vfill}}
+%Separar colunas SEM pontinhos entre elas
+\vbox to \ht\mult@rightbox{\leaders\vbox{\kern2pt\kern2pt}\vfill}}
+\makeatother
+\setlength{\columnseprule}{5px}   
+%--------------------------------------    
+    
+     
+
+\begin{document}
+	\CEFETopen
+    \CEFETtitulo{Trabalho Prático: Soquetes}
+
+
+\section{Introdução}
+O trabalho realizado propõe implementar um programa que permita que duas pessoas
+joguem uma partida de jogo da velha em um ambiente de rede.
+
+Outro objetivo do trabalho é demonstrar de forma prática as diferenças entre
+o tráfego de informações usando o protocolo UDP e o protocolo TCP, não só
+tornando visíveis as diferenças entre os resultados mas também permitir 
+a demonstração das diferenças entre as implementações necessárias para o uso
+de cada protocolo.
+
+
+\section{Metodologia}
+O software foi implementado na linguagem de programação Java, devido à
+sua portabilidade entre diferentes máquinas e sistemas e a implementação
+prévia de diversas classes para a abstração de sockets, datagramas e outras
+estruturas necessárias para a comunicação.
+
+Isso permitiu que o esforço fosse focado na estrutura de funcionamento do 
+software e na solução de problemas inerentes ao ambiente distribuído, 
+liberando os autores de lidar com a implementação específica do protocolo 
+e das características de hardware dos sistemas que executam o programa e 
+da rede que os interliga.
+
+Para a criação da interface com o usuário foi utilizado o designer de JDialog
+disponível na IDE Netbeans 8.0.2, que gerou automaticamente a seção do código-fonte 
+responsável pela criação e visualização da interface, cabendo aos desenvolvedores 
+definir o modelo de tela e implementar a comunicação entre os elementos da interface
+e as ações a serem executadas pelo algoritmo.
+
+O código-fonte foi dividido em 3 (três) pacotes: ``gui'', ``ctrl'' e ``net''. Esses
+pacotes buscam organizar a estrutura do programa adaptando o renomado modelo MVC.
+
+O pacote ``gui'' contém a classe Screen, responsável pela seção de visão do software, 
+implementando a interface com o usuário.
+
+Já o pacote ``ctrl'' contém a classe TicTacToe, responsável pela seção de controle, 
+implementado o algoritmo do jogo da velha, realizando jogadas e determinando o 
+resultado da partida.
+
+Por último, o pacote ``net'' substitui a seção de modelo já que não há necessidade 
+para persistência de dados. Esse pacote contém o conjunto de classes utilizadas para 
+realizar a comunicação entre as instâncias do programa utilizando uma arquitetura 
+\textit{peer-to-peer} e os protocolos UDP e TCP.
+
+
+\section{Resultados}
+
+O software resultante possui uma interface na qual o usuário pode informar o endereco
+de rede de um outro usuario, a porta do processo na outra máquina e o protocolo a ser usado
+ou esperar outro host da rede se conectar a seu jogo.
+
+O número da porta de cada protocolo é imprimido no console da aplicação dos usuários, 
+indicando que o programa estará escutando naquelas portas por tentativas de conexões.
+
+Assim que conectados um ao outro, seja com uma conexão TCP ou com uma simulação de conexão
+UDP, o jogo começa, com o usuário que buscou a conexão realizando a primeira jogada.
+
+A interface possui 9 (nove) quadrados que simulam um tabuleiro virtual de jogo da velha,
+no qual a jogada realizada pelo jogador local são marcadas de azul e as realizadas pelo 
+oponente em vermelho.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/tela.jpg}
+	\caption[]{Interface do software}
+	\label{fig:figura1}
+\end{figure}
+
+\clearpage
+
+\section{Análise}
+
+Foram encontrados alguns problemas durante o desenvolvimento do programa que fizeram com que
+os resultados esperados não fossem atingidos.
+
+Para conexões do tipo TCP houve um comportamente inesperado em todos os testes executados, nos
+quais o jogador que iniciava a partida realizava sua jogada, enviando um pacote pela rede usando
+a conexão previamente estabelecida. Mas o outro host, após perceber que alguém havia se conectado
+ao jogo, esperava indefinidamente por uma jogada do oponente, não sendo capaz de ler o pacote enviado
+e entrando em um \textit{loop} infinito.
+
+Já no caso do protocolo UDP o jogador que inicia a partida realiza sua jogada e espera pela jogada
+de resposta do oponente. Enquanto isso, o outro host recebe a jogada, marca a devida posição como 
+estando ocupada pelo oponente e aguarda o jogador local escolher uma posição para jogar. Quando o 
+jogador a escolhe a jogada não é recebida pelo outro host e ambos passam a esperar indefinidamente 
+por uma jogada do oponente, entrando também em um \textit{loop} infinito.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/bug.jpg}
+	\caption[]{\textit{Loop} infinito utilizando UDP}
+	\label{fig:figura2}
+\end{figure}
+
+Outro problema foi gerenciar o sincronismo entre as aplicações, fazendo com que cada uma fosse capaz
+de enviar pacotes para a outra e receber sem que a ordem do jogo fosse comprometida. Para que tal 
+requerimento fosse atingido foi necessário bloquear a aplicação enquanto esperava para leitura, situação 
+que pode ter vindo a causar os problemas supra-citados.
+
+\clearpage
+
+\section{Conclusão}
+
+A realização deste trabalho possibilitou ao grupo perceber as dificuldades da 
+implementação de um sistema distribuído, principalmente no que tange a confiabilidade
+e o sincronismo da comunicação entre os processos.
+
+Além disso, pode se perceber como certas arquiteturas de rede, como a \textit{peer-to-peer}, 
+dificultam o gerenciamento da lógica da rede pela aplicação e como os conceitos de sistemas
+distribuídos auxiliam na superação dessas dificuldades.
+
+
+\section{Código}
+\subsection{Pacote ``gui''}
+\lstinputlisting[language=Java]{gui/Screen.java}
+\clearpage
+\subsection{Pacote ``ctrl''}
+\lstinputlisting[language=Java]{ctrl/TicTacToe.java}
+\clearpage
+\subsection{Pacote ``net''}
+\lstinputlisting[language=Java]{net/Sender.java}
+\lstinputlisting[language=Java]{net/TcpListener.java}
+\lstinputlisting[language=Java]{net/TcpServer.java}
+\lstinputlisting[language=Java]{net/UdpListener.java}
+\lstinputlisting[language=Java]{net/UdpServer.java}
+
+\end{document}
