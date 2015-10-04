@@ -29,6 +29,7 @@ public final class TicTacToe extends Thread {
                 grid[i][j] = 0;
         for(int i = 0; i < 10; i++)
             screen.changeButtonColor(0, i);
+        
     }
     
     public int winner() {
@@ -52,9 +53,10 @@ public final class TicTacToe extends Thread {
             screen.changeButtonColor(player, pos+1);
             if(player == 1){
                 sender.writePlay(pos);
-                sender.readPlay(); // <<----------- PROBLEMA
+                sender.readPlay();
             }
         }
+        isOver();
     }
 
     public void connect(String address, String port, boolean isTcp) {
@@ -65,6 +67,7 @@ public final class TicTacToe extends Thread {
     public void connected(){
         lastPlay = 1;
         sender.readPlay();
+        screen.createDialog("Jogador conectado", "");
     }
     
     public boolean isOver() {

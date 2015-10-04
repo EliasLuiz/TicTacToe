@@ -12,19 +12,19 @@ public class TcpServer{
     private final Sender sender;
     private TcpListener tcp;
     private Socket socket;
+    private int listeningPort;
     private BufferedReader in;
     private BufferedWriter out;
     
-    public TcpServer(Sender sender) {
+    public TcpServer(Sender sender, int listeningPort) {
         this.sender = sender;
+        this.listeningPort = listeningPort;
         clear();
     }
     
     public final void clear(){
         try {
-            int p = (int) (Math.random() * 100 + 1000);
-            System.out.println("porta tcp: " + p);
-            tcp = new TcpListener(this, p);
+            tcp = new TcpListener(this, listeningPort);
             tcp.start();
         } catch (Exception ex) {
             ex.printStackTrace();

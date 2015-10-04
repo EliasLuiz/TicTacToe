@@ -12,17 +12,17 @@ public class UdpServer {
     private DatagramSocket serverSocket;
     private String address;
     private int port;
+    private int listeningPort;
 
-    public UdpServer(Sender sender) {
+    public UdpServer(Sender sender, int listeningPort) {
         this.sender = sender;
+        this.listeningPort = listeningPort;
         clear();
     }
 
     public final void clear() {
         try {
-            int p = (int) (Math.random() * 100 + 1000);
-            System.out.println("porta udp: " + p);
-            serverSocket = new DatagramSocket(p);
+            serverSocket = new DatagramSocket(this.listeningPort);
             listener = new UdpListener(this, serverSocket);   
             listener.start();
         } catch (IOException ex) {
@@ -34,6 +34,7 @@ public class UdpServer {
         this.address = address;
         this.port = Integer.parseInt(port);
         if(pkg != null){
+            sender.connected(false);
             sender.makePlay(2, Integer.parseInt(new String(pkg.getData(), 0, pkg.getLength()).trim()));
         }
         listener = null;

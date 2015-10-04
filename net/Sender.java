@@ -1,19 +1,30 @@
 package net;
 
 import ctrl.TicTacToe;
-import java.io.IOException;
 
 public class Sender {
     
     private final TicTacToe game;
-    private final TcpServer tcp;
-    private final UdpServer udp;
+    private TcpServer tcp;
+    private int tcpPort;
+    private UdpServer udp;
+    private int udpPort;
     private boolean isTcp;
+    private boolean connected;
     
     public Sender(TicTacToe t){
         game = t;
-        tcp = new TcpServer(this);
-        udp = new UdpServer(this);
+        tcpPort = (int) (Math.random() * 100 + 1000);
+        System.out.println("porta tcp: " + tcpPort);
+        udpPort = (int) (Math.random() * 100 + 1000);
+        System.out.println("porta udp: " + udpPort);
+        reset();
+    }
+    
+    public void reset(){
+        tcp = new TcpServer(this, tcpPort);
+        udp = new UdpServer(this, udpPort);
+        connected = false;
     }
 
     public void connect(String address, String port, boolean isTcp) {
@@ -23,34 +34,28 @@ public class Sender {
             tcp.connect(address, port);
         else
             udp.connect(address, port, null);
+        
+        connected = true;
     }
     
     public void writePlay(int pos) {
         if(isTcp)
-            tcp.write(pos + "\n"); 
+            tcp.write(pos + ""); 
         else
-            udp.write(pos + "\n");
+            udp.write(pos + "");
     }
     
     public void readPlay() {
-        String read = "";
-        if(isTcp)
-            while("".equals(read)){
-                try { read = tcp.read(); } 
-                catch (IOException ex) { ex.printStackTrace(); }
-            }
-        else
-            while("".equals(read)){
-                try { read = udp.read(); } 
-                catch (IOException ex) { ex.printStackTrace(); }
-            }
-        
-        game.makePlay(2, Integer.parseInt(read));
+        PlayReader reader = new PlayReader(tcp, udp, game, isTcp);
+        reader.start();
     }
 
     public void connected(boolean isTcp) {
         this.isTcp = isTcp;
-        game.connected();
+        if(!connected){
+            connected = true;
+            game.connected();
+        }
     }
     
     public void makePlay(int player, int pos){
