@@ -61,14 +61,14 @@ public class TcpServer{
     public void write(String data){
         try {
             out.write(data);
+            out.flush();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
     
     public String read() throws IOException {
-        while(!in.ready()) {}
-        return in.readLine();
+        return (in.read() - 48) + "";
     }
     
 }

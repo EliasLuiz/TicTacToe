@@ -3,9 +3,10 @@ package ctrl;
 import gui.Screen;
 import net.Sender;
 
-public final class TicTacToe extends Thread {
+public final class TicTacToe {
     
     private int[][] grid;
+    private int initPlay;
     private int lastPlay;
     private final Screen screen;
     private final Sender sender;
@@ -16,20 +17,14 @@ public final class TicTacToe extends Thread {
         reset();
     }
     
-    @Override
-    public void run() {
-        
-    }
-    
     public void reset() {
-        lastPlay = 2;
+        initPlay = initPlay % 2 + 1;
         grid = new int[3][3];
         for(int i = 0; i < 3; i++)
             for(int j = 0; j < 3; j++)
                 grid[i][j] = 0;
         for(int i = 0; i < 10; i++)
             screen.changeButtonColor(0, i);
-        
     }
     
     public int winner() {
@@ -46,7 +41,6 @@ public final class TicTacToe extends Thread {
     }
     
     public void makePlay(int player, int pos) {
-        System.out.println(player + " : " + pos);
         if(grid[ pos / 3 ][ pos % 3 ] == 0 && !isOver() && lastPlay != player){
             lastPlay = player;
             grid[ pos / 3 ][ pos % 3 ] = player;
@@ -61,10 +55,12 @@ public final class TicTacToe extends Thread {
 
     public void connect(String address, String port, boolean isTcp) {
         sender.connect(address, port, isTcp);
+        initPlay = 2;
         lastPlay = 2;
     }
     
     public void connected(){
+        initPlay = 1;
         lastPlay = 1;
         sender.readPlay();
         screen.createDialog("Jogador conectado", "");
@@ -73,6 +69,7 @@ public final class TicTacToe extends Thread {
     public boolean isOver() {
         if(winner() != 0){
             screen.createDialog("Jogador " + winner() + " venceu!", "Resultado");
+            reset();
             return true;
         }
         
@@ -82,6 +79,7 @@ public final class TicTacToe extends Thread {
                     return false;
         
         screen.createDialog("Deu velha!", "Resultado");
+        reset();
         return true;
     }
 

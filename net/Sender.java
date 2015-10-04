@@ -18,13 +18,8 @@ public class Sender {
         System.out.println("porta tcp: " + tcpPort);
         udpPort = (int) (Math.random() * 100 + 1000);
         System.out.println("porta udp: " + udpPort);
-        reset();
-    }
-    
-    public void reset(){
         tcp = new TcpServer(this, tcpPort);
         udp = new UdpServer(this, udpPort);
-        connected = false;
     }
 
     public void connect(String address, String port, boolean isTcp) {

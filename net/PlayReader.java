@@ -23,12 +23,12 @@ public class PlayReader extends Thread {
     public void run(){
         String read = "";
         if(isTcp)
-            while("".equals(read)){
+            while("".equals(read) || read == null){
                 try { read = tcp.read(); } 
                 catch (IOException ex) { ex.printStackTrace(); }
             }
         else
-            while("".equals(read)){
+            while("".equals(read) || read == null){
                 try { read = udp.read(); } 
                 catch (IOException ex) { ex.printStackTrace(); }
             }
@@ -38,7 +38,6 @@ public class PlayReader extends Thread {
             //Fazendo o que o Java por algum motivo faz errado as vezes
             p = read.chars().findFirst().getAsInt() - 48;
         }
-        
         game.makePlay(2, p);
     }
     
