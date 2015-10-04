@@ -86,4 +86,8 @@ public final class TicTacToe {
     public void setLastPlay(int lastPlay) {
         this.lastPlay = lastPlay;
     }
+    
+    public void createDialog(String message, String title) {
+        screen.createDialog(message, title);
+    }
 }

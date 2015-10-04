@@ -18,6 +18,7 @@ public class Sender {
         System.out.println("porta tcp: " + tcpPort);
         udpPort = (int) (Math.random() * 100 + 1000);
         System.out.println("porta udp: " + udpPort);
+        game.createDialog("TCP: " + tcpPort + "\nUDP: " + udpPort, "Escutando nas portas");
         tcp = new TcpServer(this, tcpPort);
         udp = new UdpServer(this, udpPort);
     }
