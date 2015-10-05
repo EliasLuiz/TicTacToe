@@ -176,8 +176,11 @@ responsável pela criação e visualização da interface, cabendo aos desenvolvedore
 definir o modelo de tela e implementar a comunicação entre os elementos da interface
 e as ações a serem executadas pelo algoritmo.
 
-O código-fonte foi dividido em 3 (três) pacotes: ``gui'', ``ctrl'' e ``net''. Esses
+O código-fonte foi dividido em 4 (quatro) pacotes: ``SDTP1'', ``gui'', ``ctrl'' e ``net''. Esses
 pacotes buscam organizar a estrutura do programa adaptando o renomado modelo MVC.
+
+No pacote ``SDTP1'' está a classe SDTP1, responsável pelo método principal do programa 
+inicializando a interface gráfica do programa.
 
 O pacote ``gui'' contém a classe Screen, responsável pela seção de visão do software, 
 implementando a interface com o usuário.
@@ -198,8 +201,8 @@ O software resultante possui uma interface na qual o usuário pode informar o end
 de rede de um outro usuario, a porta do processo na outra máquina e o protocolo a ser usado
 ou esperar outro host da rede se conectar a seu jogo.
 
-O número da porta de cada protocolo é imprimido no console da aplicação dos usuários, 
-indicando que o programa estará escutando naquelas portas por tentativas de conexões.
+O número da porta de cada protocolo é exibido no início da aplicação, indicando que o
+programa estará escutando naquelas portas por tentativas de conexões.
 
 Assim que conectados um ao outro, seja com uma conexão TCP ou com uma simulação de conexão
 UDP, o jogo começa, com o usuário que buscou a conexão realizando a primeira jogada.
@@ -219,32 +222,37 @@ oponente em vermelho.
 
 \section{Análise}
 
-Foram encontrados alguns problemas durante o desenvolvimento do programa que fizeram com que
-os resultados esperados não fossem atingidos.
+Houveram alguns contratempos durante o desenvolvimento, se destacando a gerência do uso
+da rede juntamente com a sincronia interna e entre as aplicações.
 
-Para conexões do tipo TCP houve um comportamente inesperado em todos os testes executados, nos
-quais o jogador que iniciava a partida realizava sua jogada, enviando um pacote pela rede usando
-a conexão previamente estabelecida. Mas o outro host, após perceber que alguém havia se conectado
-ao jogo, esperava indefinidamente por uma jogada do oponente, não sendo capaz de ler o pacote enviado
-e entrando em um \textit{loop} infinito.
+Pelo fato de a rede \textit{peer-to-peer} utilizada ser de apenas 2 (dois) integrantes 
+a gerência dos hosts não foi algo que se demonstrasse extremamente complexo. A maior 
+dificuldade encontrada foi como gerenciar o uso da rede, fazendo com que cada jogador
+só pudesse a utilizar quando fosse sua vez, sincronizando as ações das aplicações.
 
-Já no caso do protocolo UDP o jogador que inicia a partida realiza sua jogada e espera pela jogada
-de resposta do oponente. Enquanto isso, o outro host recebe a jogada, marca a devida posição como 
-estando ocupada pelo oponente e aguarda o jogador local escolher uma posição para jogar. Quando o 
-jogador a escolhe a jogada não é recebida pelo outro host e ambos passam a esperar indefinidamente 
-por uma jogada do oponente, entrando também em um \textit{loop} infinito.
+A solução para isso foi utilizando a lógica interna do jogo definir quem deveria jogar
+e impedindo que o outro cliente tivesse acesso à camada de rede do programa, não sendo
+necessário então a implementação de um protocolo para a comunicação entre elas. Porém pode
+se notar que caso não houvessem regras tão claras e simples a sincronia entre as instâncias
+seria uma tarefa muito mais árdua.
+
+Também foram encontradas dificuldades na sincronia interna da aplicação, devido a necessidade
+de estar sempre escutando por conexões ou dados na rede e, simultaneamente, por comandos do 
+usuário intermediados pela interface gráfica.
+
+Com o uso de diversas threads foi possível realizar isso de forma não bloqueante para o usuário
+e que não fossem perdidos dados enviados pela rede. Como foram necessárias poucas threads de vida
+curta e com tarefa bem específica, os problemas de sincronismo foram solucionados de maneira relativamente
+simples, sendo o grande custo o tempo de desenvolvimente desprendido para teste e detecção dos
+problemas durante a produção do software.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/bug.jpg}
-	\caption[]{\textit{Loop} infinito utilizando UDP}
+	\includegraphics[width=0.8\textwidth]{images/jogo.jpg}
+	\caption[]{2 instâncias jogando localmente}
 	\label{fig:figura2}
 \end{figure}
 
-Outro problema foi gerenciar o sincronismo entre as aplicações, fazendo com que cada uma fosse capaz
-de enviar pacotes para a outra e receber sem que a ordem do jogo fosse comprometida. Para que tal 
-requerimento fosse atingido foi necessário bloquear a aplicação enquanto esperava para leitura, situação 
-que pode ter vindo a causar os problemas supra-citados.
 
 \clearpage
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.26)  28 SEP 2015 00:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.26)  5 OCT 2015 20:32
 entering extended mode
 **modeloRelatorioArtigo.tex
 (modeloRelatorioArtigo.tex
@@ -496,44 +496,111 @@ Package microtype Info: Loading generic settings for font family
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 145.
+
+
+LaTeX Warning: File `images/_logo.eps' not found on input line 181.
+
 Package epstopdf Info: Source file: <images/_logo.eps>
-(epstopdf)                    date: 2014-05-29 20:00:12
-(epstopdf)                    size: 137989 bytes
 (epstopdf)             Output file: <images/_logo-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-06-30 13:55:48
-(epstopdf)                    size: 6838 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/_logo-eps-converted-
 to.pdf images/_logo.eps>
 (epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
- <images/_logo-eps-converted-to.pdf, id=1, 292.09125pt x 186.6975pt>
-File: images/_logo-eps-converted-to.pdf Graphic file (type pdf)
 
-<use images/_logo-eps-converted-to.pdf>
-Package pdftex.def Info: images/_logo-eps-converted-to.pdf used on input line 1
-81.
-(pdftex.def)             Requested size: 102.43008pt x 65.47044pt.
- [1{C:/Users/EliasLuiz/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+! Package pdftex.def Error: File `images/_logo-eps-converted-to.pdf' not found.
 
- <./images/_logo-eps-converted-to.pdf>]
-<images/tela.jpg, id=10, 447.6725pt x 533.995pt>
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.181 
+      
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 181.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+! You can't use `the character 8' after \the.
+\headheight ->8
+               5pt
+l.181 
+      
+I'm forgetting what you said and using zero instead.
+
+
+Package Fancyhdr Warning: \headheight is too small (05pt): 
+ Make it at least 119.67175pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+! You can't use a prefix with `the character 8'.
+<to be read again> 
+                   8
+l.181 
+      
+I'll pretend you didn't say \long or \outer or \global or \protected.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \relax 
+l.181 
+      
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \relax 
+l.181 
+      
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+Overfull \hbox (22.67159pt too wide) has occurred while \output is active
+\T1/CabinCondensed-TLF/m/n/12 85pt []
+ []
+
+[1{C:/Users/Elias Luiz/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+]
+<images/tela.jpg, id=8, 447.6725pt x 533.995pt>
 File: images/tela.jpg Graphic file (type jpg)
  <use images/tela.jpg>
-Package pdftex.def Info: images/tela.jpg used on input line 213.
+Package pdftex.def Info: images/tela.jpg used on input line 216.
 (pdftex.def)             Requested size: 357.52576pt x 426.47955pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2] [3 <./images/tela.jpg>] <images/bug.jpg, id=18, 899.36pt x 533.995pt>
-File: images/bug.jpg Graphic file (type jpg)
+[2] [3 <./images/tela.jpg>] <images/jogo.jpg, id=16, 901.3675pt x 539.01375pt>
+File: images/jogo.jpg Graphic file (type jpg)
 
-<use images/bug.jpg>
-Package pdftex.def Info: images/bug.jpg used on input line 239.
-(pdftex.def)             Requested size: 357.52576pt x 212.28236pt.
- [4
+<use images/jogo.jpg>
+Package pdftex.def Info: images/jogo.jpg used on input line 251.
+(pdftex.def)             Requested size: 357.52576pt x 213.80046pt.
 
- <./images/bug.jpg>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4
+
+] [5 <./images/jogo.jpg>]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -553,7 +620,7 @@ Package microtype Info: Character `textminus ' is missing
 (microtype)             in font `TS1/CabinCondensed-TLF/m/n/8'.
 (microtype)             Ignoring protrusion settings for this character.
 
-[5
+[6
 
 ] ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
@@ -565,34 +632,39 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 39.
- [6] [7]
-[8] [9] [10] [11]) [12] (ctrl/TicTacToe.java [13
+ [7] [8]
+[9] [10] [11] [12]) [13] (ctrl/TicTacToe.java [14
 
-]) [14] (net/Sender.java
-[15
+]) [15] (net/Sender.java
+[16
 
-]) (net/TcpListener.java) (net/TcpServer.java [16]) (net/UdpListener.java
-[17]) (net/UdpServer.java [18]) 
+]) (net/TcpListener.java) (net/TcpServer.java [17]) (net/UdpListener.java
+[18]) (net/UdpServer.java [19]) 
 AED: lastpage setting LastPage
-[19] (modeloRelatorioArtigo.aux) ) 
+[20] (modeloRelatorioArtigo.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 8297 strings out of 493673
- 131651 string characters out of 3143948
+ 8288 strings out of 493673
+ 131611 string characters out of 3143943
  474601 words of memory out of 3000000
- 11408 multiletter control sequences out of 15000+200000
- 108147 words of font info for 86 fonts, out of 3000000 for 9000
+ 11399 multiletter control sequences out of 15000+200000
+ 107952 words of font info for 84 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 61i,15n,96p,291b,1757s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/
-cabin/cbn_xvjm53.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cabin/cbn_zlj
-gjy.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/impallari/cabin/CabinCondensed
--Bold.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/impallari/cabin/CabinCondens
-ed-Regular.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/impallari/cabin/CabinCo
-ndensed-RegularItalic.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb>
-Output written on modeloRelatorioArtigo.pdf (19 pages, 201868 bytes).
+ 61i,14n,96p,291b,1757s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cabin/cbn_xvjm53.enc}{C:/Program
+ Files/MiKTeX 2.9/fonts/enc/dvips/cabin/cbn_zljgjy.enc} <C:\Users\Elias Luiz\Ap
+pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/impallari/cabin/CabinCondensed-Bold.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/impallari/cabin/CabinCondensed-Regular.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/impallari/cabin/CabinCondensed-RegularIt
+alic.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+
+Output written on modeloRelatorioArtigo.pdf (20 pages, 286782 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 113 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 15376 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 15883 words of extra memory for PDF output out of 17280 (max. 10000000)
 
